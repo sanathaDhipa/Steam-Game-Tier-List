@@ -29,7 +29,7 @@ data = {
     'Genre_concentration_points': [0]
 }
 
-@st.experimental_dialog("Your Game rating. . .", width="small")
+@st.experimental_dialog("Game Tier. . .", width="small")
 def show_tier(tier):
     if tier == 'S':
         st.balloons()
