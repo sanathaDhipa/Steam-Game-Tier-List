@@ -81,7 +81,7 @@ def show_predict_page():
         data['PEGI_3'] = [1]
 
     # < -- Release Date -- >
-    release_date = st.date_input("Release Date", datetime.date(2024, 6, 14), format="MM-DD-YYYY")
+    release_date = st.date_input("Release Date", datetime.date.today(), format="MM-DD-YYYY")
     
     data['Year'] = [0]
     data['Quarter'] = [0]
