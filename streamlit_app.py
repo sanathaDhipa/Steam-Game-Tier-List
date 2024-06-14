@@ -51,7 +51,7 @@ def calculate_true_concentration(item_list):
     concentration = true_count / total if total > 0 else 0.0
     return concentration
 
-def show_predict_page():
+def show_predict_page():    
     # st.title()
     st.header('Game :red[Tier] Prediction:video_game:', divider='rainbow')
     # < -- Content Rating -- >
@@ -95,7 +95,7 @@ def show_predict_page():
     
     # < -- Genre -- >
     options_genre = st.multiselect(
-    "Genre",
+    ":red[Genre]",
     ["Free to Play", "Early Access", "Action", "Adventure", 'Casual', 'Indie', 'Massively Multiplayer', 'Racing', 'RPG', 'Simulation', 'Sports', 'Strategy'])
     concentration_value = calculate_true_concentration(options_genre)
     data['Genre_concentration_points'] = [concentration_value]
@@ -127,7 +127,7 @@ def show_predict_page():
     
     # < -- Game language Support -- >
     options_sub = st.multiselect(
-    "Language Support",
+    ":red[Language Support]",
     ["English", "French", "Italian", "German", 'Spanish-Spain', 'Japanese', 'Portuguese-Brazil', 'Russian', 'SimplifiedChinese', 'Korean', 'Other'])
     
     data_sub = {
@@ -156,7 +156,7 @@ def show_predict_page():
     
     # < -- Game Audio Support -- >
     options_dub = st.multiselect(
-    "Audio Support",
+    ':red[Audio Support]', 
     ["Text Only", "English", "Japanese", "German", 'French', 'Italian', 'Spanish-Spain', 'Russian', 'TraditionalChinese', 'SimplifiedChinese', 'Other'])
     
     data_dub = {
@@ -185,7 +185,7 @@ def show_predict_page():
     
     # < -- Game Platform -- >
     options_platform = st.multiselect(
-    "Platform",
+    ":red[Platform]",
     ["Windows", "Linux", "Mac"])
     
     data_platform = {
@@ -209,17 +209,18 @@ def show_predict_page():
     data['Price'] = [slider_price]
     
     # < -- Submit -- >
-    ok = st.button("Get Tier")
-    if ok:
-        df = pd.DataFrame(data) 
-        
-        classification = load_model()
-        tier = classification.predict(df)
-        show_tier(tier)
-        if tier == 'S':
-            st.balloons()
-        elif tier == 'A':
-            st.balloons()
+    if options_platform and options_dub and options_genre and options_sub:
+        ok = st.button("Get Tier")
+        if ok:
+            df = pd.DataFrame(data) 
+            
+            classification = load_model()
+            tier = classification.predict(df)
+            show_tier(tier)
+            if tier == 'S':
+                st.balloons()
+            elif tier == 'A':
+                st.balloons()
 
     
     # < -- Testing -- >
