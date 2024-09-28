@@ -1,9 +1,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 Ever wonder what tier your favorite Steam games belong to? This project classifies games into tiers(S, A, B, or C) using selected features from the [Steam Games Dataset](https://www.kaggle.com/datasets/fronkongames/steam-games-dataset). A Gradient Boosting Classifier predicts tiers based on factors like genre, platform, etc. The model deployed with Streamlit, provides an intuitive web interface for real-time predictions. 
+
+![View project](resources/view_app.png)
 
 Discover the tier of your games with this simple tool!
 
@@ -37,3 +37,4 @@ Discover the tier of your games with this simple tool!
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+![Demo project](resources/view_gif.gif)
